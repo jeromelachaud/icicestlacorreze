@@ -35,12 +35,6 @@
   <body id="{{ page.permalink }}_page" class="{{ page.category }} no_transition">
     <div id="site_header" class="strip">
       <div class="canvas">
-        <nav id="main_nav">
-          <ul>
-            <li {% if page.full_url contains '/products' or page.full_url contains '/product/' or page.full_url contains '/category/' or page.full_url contains '/artist/' %}class="selected"{% endif %}><a href="/products">Produits</a></li>{% for page in pages.all limit:theme.nav_items %}<li {% if page.full_url contains page.url %}class="selected"{% endif %}>{{ page | link_to }}</li>{% endfor %}<li {% if page.full_url contains '/contact' %}class="selected"{% endif %}><a href="/contact">Contact</a></li><li {% if page.full_url contains '/cart' %}class="selected"{% endif %}><a href="/cart">Panier</a></li>
-          </ul>
-        </nav>
-
         <header>
           {% if theme.images.header != blank %}
           <div id="branding">
@@ -50,11 +44,17 @@
             </a>
           </div>
           {% elsif page.name == 'Home' %}
-            <h1 id="store_name"><a href="/">{{ store.name }}</a></h1>
+          <h1 id="store_name"><a href="/">{{ store.name }}</a></h1>
           {% else %}
-            <h2 id="store_name"><a href="/">{{ store.name }}</a></h2>
+          <h2 id="store_name"><a href="/">{{ store.name }}</a></h2>
           {% endif %}
         </header>
+
+        <nav id="main_nav">
+          <ul>
+            <li {% if page.full_url contains '/products' or page.full_url contains '/product/' or page.full_url contains '/category/' or page.full_url contains '/artist/' %}class="selected"{% endif %}><a href="/products">Produits</a></li>{% for page in pages.all limit:theme.nav_items %}<li {% if page.full_url contains page.url %}class="selected"{% endif %}>{{ page | link_to }}</li>{% endfor %}<li {% if page.full_url contains '/contact' %}class="selected"{% endif %}><a href="/contact">Contact</a></li><li {% if page.full_url contains '/cart' %}class="selected"{% endif %}><a href="/cart">Panier</a></li>
+          </ul>
+        </nav>
 
         <nav id="mobile_nav">
           <ul>
@@ -163,7 +163,7 @@
           </li>
           {% endif %}
         </ul>
-        
+
         {% if theme.twitter_url != blank or theme.facebook_url != blank or theme.instagram_url != blank or theme.tumblr_url != blank or theme.pinterest_url != blank %}
           <ul class="social_icons">
             {% if theme.twitter_url != blank %}
