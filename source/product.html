@@ -2,7 +2,7 @@
   <h1>{{ product.name }}</h1>
   <span class="dash"></span>
   <h3>{{ product.default_price | money: theme.money_format }}</h3>
-  {% if product.on_sale %}<h5>On Sale</h5>{% endif %}
+  {% if product.on_sale %}<h5>En promotion</h5>{% endif %}
 </header>
 
 <section id="product_images">
@@ -47,11 +47,11 @@
         {% else %}
           {{ product.options_in_stock | options_select }}
         {% endif %}
-        <button id="product-addtocart" name="submit" type="submit" class="button"><span>Add to cart</span></button>
+        <button id="product-addtocart" name="submit" type="submit" class="button"><span>Ajouter au panier</span></button>
       </form>
     </section>
   {% when 'sold-out' %}
-		<h4 class="button disabled">Sold Out</h4>
+		<h4 class="button disabled">Épuisé</h4>
   {% when 'coming-soon' %}
 		<h4 class="button disabled">Coming Soon</h4>
   {% endcase %}

@@ -37,7 +37,7 @@
       <div class="canvas">
         <nav id="main_nav">
           <ul>
-            <li {% if page.full_url contains '/products' or page.full_url contains '/product/' or page.full_url contains '/category/' or page.full_url contains '/artist/' %}class="selected"{% endif %}><a href="/products">Products</a></li>{% for page in pages.all limit:theme.nav_items %}<li {% if page.full_url contains page.url %}class="selected"{% endif %}>{{ page | link_to }}</li>{% endfor %}<li {% if page.full_url contains '/contact' %}class="selected"{% endif %}><a href="/contact">Contact</a></li><li {% if page.full_url contains '/cart' %}class="selected"{% endif %}><a href="/cart">Cart</a></li>
+            <li {% if page.full_url contains '/products' or page.full_url contains '/product/' or page.full_url contains '/category/' or page.full_url contains '/artist/' %}class="selected"{% endif %}><a href="/products">Produits</a></li>{% for page in pages.all limit:theme.nav_items %}<li {% if page.full_url contains page.url %}class="selected"{% endif %}>{{ page | link_to }}</li>{% endfor %}<li {% if page.full_url contains '/contact' %}class="selected"{% endif %}><a href="/contact">Contact</a></li><li {% if page.full_url contains '/cart' %}class="selected"{% endif %}><a href="/cart">Panier</a></li>
           </ul>
         </nav>
 
@@ -58,9 +58,9 @@
 
         <nav id="mobile_nav">
           <ul>
-            <li><a href="/products">Products</a></li>
-            <li><a href="/cart">Cart</a></li>
-            <li><a href="#site_footer" title="See more options">More</a></li>
+            <li><a href="/products">Produits</a></li>
+            <li><a href="/cart">Panier</a></li>
+            <li><a href="#site_footer" title="Voir plus d'options">Plus</a></li>
           </ul>
         </nav>
       </div>
@@ -93,7 +93,7 @@
     {% for category in product.categories limit:1 %}
     <aside id="more_products" class="canvas {% if category.products.size == 1 %}no_products{% endif %}">
       {% if category.products.size > 1 %}
-      <h3>Related products</h3>
+      <h3>Produits liés</h3>
 
       <ul id="products">
         {% for product in category.products limit:4 %}
@@ -106,9 +106,9 @@
               <h3>{{ product.default_price | money: theme.money_format }}</h3>
               {% case product.status %}
               {% when 'active' %}
-                {% if product.on_sale %}<h5>On Sale</h5>{% endif %}
+                {% if product.on_sale %}<h5>En promotion</h5>{% endif %}
               {% when 'sold-out' %}
-                <h5>Sold Out</h5>
+                <h5>Épuisé</h5>
               {% when 'coming-soon' %}
                <h5>Coming Soon</h5>
               {% endcase %}
@@ -124,8 +124,8 @@
       {% endif %}
       <nav>
        <ul>
-          {% if product.previous_product != blank %}<li>{{ product.previous_product | link_to: "Previous product" }}</li>{% endif %}
-          {% if product.next_product != blank %}<li>{{ product.next_product | link_to: "Next product" }}</li>{% endif %}
+          {% if product.previous_product != blank %}<li>{{ product.previous_product | link_to: "Produit précédent" }}</li>{% endif %}
+          {% if product.next_product != blank %}<li>{{ product.next_product | link_to: "Produit suivant" }}</li>{% endif %}
         </ul>
       </nav>
     </aside>
@@ -134,8 +134,8 @@
     <aside id="more_products" class="canvas no_products">
       <nav>
        <ul>
-          {% if product.previous_product != blank %}<li>{{ product.previous_product | link_to: "Previous product" }}</li>{% endif %}
-          {% if product.next_product != blank %}<li>{{ product.next_product | link_to: "Next product" }}</li>{% endif %}
+          {% if product.previous_product != blank %}<li>{{ product.previous_product | link_to: "Produit précédent" }}</li>{% endif %}
+          {% if product.next_product != blank %}<li>{{ product.next_product | link_to: "Produit suivant" }}</li>{% endif %}
         </ul>
       </nav>
     </aside>
@@ -145,19 +145,19 @@
       <footer class="canvas">
         <h3>More</h3>
         <ul>
-          <li><a href="/" title="Home">Home</a></li>
-          <li {% if page.full_url contains '/products' or page.full_url contains '/product/' or page.full_url contains '/category/' %}class="selected"{% endif %}><a href="/products">Products</a></li>
+          <li><a href="/" title="Accueil">Accueil</a></li>
+          <li {% if page.full_url contains '/products' or page.full_url contains '/product/' or page.full_url contains '/category/' %}class="selected"{% endif %}><a href="/products">Produits</a></li>
 
           {% for page in pages.all %}
           <li>{{ page | link_to }}</li>
           {% endfor %}
           <li><a href="/contact">Contact</a></li>
-          <li {% if page.full_url contains '/cart' %}class="selected"{% endif %}><a href="/cart">Cart</a></li>
+          <li {% if page.full_url contains '/cart' %}class="selected"{% endif %}><a href="/cart">Panier</a></li>
           {% if theme.show_search %}
           <li id="search">
             <form id="search-form" name="search" action="/products" method="get" accept-charset="utf8">
               <input type="hidden" name="utf8" value='✓'>
-              <a href="#search-form">Search</a>
+              <a href="#search-form">Recherche</a>
               <input id="search-input" name="search" type="text">
             </form>
           </li>

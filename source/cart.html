@@ -1,5 +1,5 @@
 <header class="product_header page_header">
-  <h1>Cart</h1>
+  <h1>Panier</h1>
   <span class="dash"></span>
 </header>
 
@@ -18,7 +18,7 @@
             <dd class="quantity_input">{{ item | item_quantity_input }}</dd>
             {% unless item.product.has_default_option %}<dd class="item_option">{{ item.option.name }}</dd>{% endunless %}
           </dl>
-          <a href="#" class="remove_item" title="Remove item from cart">Remove item</a>
+          <a href="#" class="remove_item" title="Remove item from cart">Supprimer l'article</a>
         </li>
         {% endfor %}
       </ul>
@@ -26,7 +26,7 @@
 
     <section id="cart_options" class="solo_update">
       <div class="cart-update">
-        <button id="update-btn-footer" class="update-btn button disabled" name="update" type="submit" title="Update your cart total"><span>Update total</span></button>
+        <button id="update-btn-footer" class="update-btn button disabled" name="update" type="submit" title="Update your cart total"><span>Mettre à jour</span></button>
       </div>
     </section>
   </div>
@@ -34,21 +34,21 @@
   <section id="cart_summary">
     <ul>
       <li>
-        <h3>Items</h3>
+        <h3>Articles</h3>
         <span>{{ cart.subtotal | money: theme.money_format }}</span>
       </li>
       <li id="cart_total">
-        <h3>Subtotal</h3>
+        <h3>Sous-total</h3>
         <h2>{{ cart.total | money: theme.money_format }}</h2>
       </li>
     </ul>
 
-    <button id="checkout-btn" class="button" type="submit" title="Checkout">Checkout</button>
-    <a class="continue_shopping" href="/products" title="Continue shopping">Continue shopping</a>
+    <button id="checkout-btn" class="button" type="submit" title="Checkout">Passer à la caisse</button>
+    <a class="continue_shopping" href="/products" title="Continue shopping">Continuer vos achats</a>
   </section>
 </form>
 {% else %}
 <div id="cart_empty">
-  <p>Your cart is empty! Sounds like a good time to <a href="/">start shopping</a>.</p>
+  <p>Votre panier est vide. <a href="/">C'est le moment de démarrer votre séance shoping !</a>.</p>
 </div>
 {% endif %}

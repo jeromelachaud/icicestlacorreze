@@ -2,9 +2,9 @@
 
 <aside class="category_nav {% if artists.active != blank && categories.active != blank %}double{% endif %}">
   <nav class="categories">
-    <h3>Products</h3>
+    <h3>Produits</h3>
     <ul>
-      <li class="{% if page.full_url contains '/products' %}selected{% endif %}"><a href="/products">All</a></li>    
+      <li class="{% if page.full_url contains '/products' %}selected{% endif %}"><a href="/products">Voir tous</a></li>
       {% for category in categories.active %}
       <li class="page {% if page.full_url contains category.url %}selected{% endif %}">{{ category | link_to }}</li>
       {% endfor %}
@@ -37,9 +37,9 @@
         <h3>{{ product.default_price | money: theme.money_format }}</h3>
         {% case product.status %}
         {% when 'active' %}
-          {% if product.on_sale %}<h5>On Sale</h5>{% endif %}
+          {% if product.on_sale %}<h5>En promotion</h5>{% endif %}
         {% when 'sold-out' %}
-      		<h5>Sold Out</h5>
+      		<h5>Épuisé</h5>
         {% when 'coming-soon' %}
       		<h5>Coming Soon</h5>
         {% endcase %}
@@ -60,9 +60,9 @@
 
 <aside class="category_nav {% if artists.active != blank && categories.active != blank %}double{% endif %}">
   <nav class="categories">
-    <h3>Products</h3>
+    <h3>Produits</h3>
     <ul>
-      <li class="{% if page.full_url contains '/products' %}selected{% endif %}"><a href="/products">All</a></li>    
+      <li class="{% if page.full_url contains '/products' %}selected{% endif %}"><a href="/products">Tous</a></li>
       {% for category in categories.active %}
       <li class="page {% if page.full_url contains category.url %}selected{% endif %}">{{ category | link_to }}</li>
       {% endfor %}

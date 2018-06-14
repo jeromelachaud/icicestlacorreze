@@ -5,22 +5,22 @@
 
 <section id="page_body">
   {% if contact.sent %}
-  <p id="thank_you">Your message has been sent and we will try to respond within 24 business hours.</p>
+  <p id="thank_you">Votre message a bien été envoyé. Nous y repondrons dans les 2 prochains jours ouvrés</p>
   {% else %}
 
   <form id="contact_form" method="post" action="/contact" accept-charset="utf8">
     <input type="hidden" name="utf8" value='✓'>
     <ul>
       <li>
-        <label>Your name</label>
+        <label>Votre nom</label>
         {{ contact | contact_input: 'name', tabindex: 1 }}
       </li>
       <li>
-        <label>Your email</label>
+        <label>Votre email</label>
         {{ contact | contact_input: 'email', tabindex: 2 }}
       </li>
       <li>
-        <label>Subject</label>
+        <label>subject</label>
         {{ contact | contact_input: 'subject', tabindex: 3 }}
       </li>
       <li>
@@ -28,12 +28,12 @@
         {{ contact | contact_input: 'message', tabindex: 4 }}
       </li>
       <li id="captcha_img">
-        <label>Are you human? Enter the characters from the image</label>
+        <label>Êtes-vous un humain ? Entrez les caractères contenus dans l'images</label>
         <div id="captcha_phrase">{{ contact.captcha }}</div>
         {{ contact | contact_input: 'captcha', tabindex: 5 }}
       </li>
     </ul>
-    <button id="contact_button" type="submit" name="submit" class="button" tabindex="6">Send Message</button>
+    <button id="contact_button" type="submit" name="submit" class="button" tabindex="6">Envoyer</button>
   </form>
   {% endif %}
 </section>

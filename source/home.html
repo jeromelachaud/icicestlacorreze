@@ -22,11 +22,11 @@
             <h3>{{ product.default_price | money: theme.money_format }}</h3>
             {% case product.status %}
             {% when 'active' %}
-              {% if product.on_sale %}<h5>On Sale</h5>{% endif %}
+              {% if product.on_sale %}<h5>En promotion</h5>{% endif %}
             {% when 'sold-out' %}
-          		<h5>Sold Out</h5>
+          		<h5>Épuisé</h5>
             {% when 'coming-soon' %}
-          		<h5>Coming Soon</h5>
+          		<h5>Bientôt disponible</h5>
             {% endcase %}
           </div>
           <div class="product_thumb">
@@ -40,7 +40,7 @@
     {% endfor %}
   
   {% else %}
-  <p class="alert-noproducts">No products found.</p>
+  <p class="alert-noproducts">Pas de produit trouvé.</p>
   {% endif %}
   
   {% endget %}
