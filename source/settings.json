@@ -6,7 +6,7 @@
       "variable": "header",
       "label": "Header image",
       "description": "Transparent background recommended",
-      "default": "header.png"
+      "default": "header-feuille.png"
     },
     {
       "variable": "background",
